@@ -2,12 +2,17 @@
 
 1. Docker build:
 ```
-docker build -t nima-cpu . -f Dockerfile.gpu
+docker build -t nima-gpu . -f Dockerfile.gpu
+```
+
+2. Start docker container (NOTE: CHANGE DEVICE!)
+```
+docker run  -v $PWD/:/workspace  -it --rm --gpus "device=1" --name haakohu/nima --ipc=host -u 1174424 -v /work/haakohu:/work/haakohu  nima-gpu bash
 ```
 
 
-
-
+3. When  in docker container:
 ```
-python3 -m evaluater.predict -b MobileNet -w ../models/MobileNet/weights_mobilenet_technical_0.11.hdf5 -is ../images/ -pf ../predictictions.json
+cd src/
+python3 -m evaluater.predict -is /work/haakohu/datasets/fdh_v3/images/ -pf /work/haakohu/datasets/fdh_v3/nima_predictions.json
 ```
