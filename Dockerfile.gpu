@@ -12,13 +12,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       wget && \
     rm -rf /var/lib/apt/lists/*
 
-COPY src /src
-COPY entrypoints /src/entrypoints
-
-WORKDIR /src
+WORKDIR /workspace
+COPY src/requirements.txt /workspace/requirements.txt
 
 RUN pip install -r requirements.txt
 
 ENV PYTHONPATH='/src/:$PYTHONPATH'
-
-ENTRYPOINT ["entrypoints/entrypoint.train.gpu.sh"]

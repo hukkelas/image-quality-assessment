@@ -9,7 +9,7 @@ IMG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_images'
 N_CLASSES = 10
 BATCH_SIZE = 2
 BASENET_PREPROCESS = lambda x: x
-IMG_FORMAT = 'jpg'
+IMG_FORMAT = 'png'
 TEST_SAMPLES = [
     {
         'image_id': '42039',

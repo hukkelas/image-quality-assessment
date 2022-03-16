@@ -22,7 +22,7 @@ def train(
     learning_rate_all,
     dropout_rate,
     job_dir,
-    img_format='jpg',
+    img_format='png',
     existing_weights=None,
     multiprocessing_data_load=False,
     num_workers_data_load=2,
